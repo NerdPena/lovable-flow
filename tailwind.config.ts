@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Plus Jakarta Sans", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +60,23 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        column: {
+          backlog: "hsl(var(--column-backlog))",
+          todo: "hsl(var(--column-todo))",
+          "in-progress": "hsl(var(--column-in-progress))",
+          review: "hsl(var(--column-review))",
+          done: "hsl(var(--column-done))",
+          "backlog-accent": "hsl(var(--column-backlog-accent))",
+          "todo-accent": "hsl(var(--column-todo-accent))",
+          "in-progress-accent": "hsl(var(--column-in-progress-accent))",
+          "review-accent": "hsl(var(--column-review-accent))",
+          "done-accent": "hsl(var(--column-done-accent))",
+        },
+        priority: {
+          high: "hsl(var(--priority-high))",
+          medium: "hsl(var(--priority-medium))",
+          low: "hsl(var(--priority-low))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +85,27 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "slide-in-right": {
+          from: { transform: "translateX(100%)" },
+          to: { transform: "translateX(0)" },
+        },
+        "slide-out-right": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(100%)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "slide-in-right": "slide-in-right 0.3s ease-out",
+        "slide-out-right": "slide-out-right 0.3s ease-out",
       },
     },
   },
