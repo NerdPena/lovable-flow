@@ -159,12 +159,62 @@ export function TaskDialog({ open, onOpenChange, task, defaultStatus = "backlog"
 
               <FormField
                 control={form.control}
+                name="category"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Category</FormLabel>
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        <SelectItem value="personal">👤 Personal</SelectItem>
+                        <SelectItem value="printers">🖨️ Printers</SelectItem>
+                        <SelectItem value="rv_park">🏕️ RV Park</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </FormItem>
+                )}
+              />
+            </div>
+
+            <div className="grid grid-cols-3 gap-4">
+              <FormField
+                control={form.control}
                 name="due_date"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Due Date</FormLabel>
                     <FormControl>
                       <Input type="date" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="start_hour"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Start Time</FormLabel>
+                    <FormControl>
+                      <Input type="time" {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="estimated_minutes"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Est. (min)</FormLabel>
+                    <FormControl>
+                      <Input type="number" min={0} placeholder="60" {...field} value={field.value ?? ""} />
                     </FormControl>
                   </FormItem>
                 )}

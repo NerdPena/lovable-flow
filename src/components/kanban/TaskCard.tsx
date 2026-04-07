@@ -78,10 +78,25 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
             <Badge variant="outline" className={`text-[10px] px-2 py-0.5 font-semibold border-0 ${priority.bg} ${priority.color}`}>
               {priority.label}
             </Badge>
+            <Badge variant="secondary" className="text-[10px] px-2 py-0.5 font-medium">
+              {category.emoji} {category.label}
+            </Badge>
             {task.due_date && (
               <span className="inline-flex items-center gap-1 text-[10px] text-muted-foreground">
                 <Calendar className="h-3 w-3" />
                 {format(new Date(task.due_date), "MMM d")}
+              </span>
+            )}
+            {task.start_hour && (
+              <span className="inline-flex items-center gap-1 text-[10px] text-muted-foreground">
+                <Clock className="h-3 w-3" />
+                {task.start_hour.slice(0, 5)}
+              </span>
+            )}
+            {task.estimated_minutes && (
+              <span className="inline-flex items-center gap-1 text-[10px] text-muted-foreground">
+                <Timer className="h-3 w-3" />
+                {task.estimated_minutes}m
               </span>
             )}
           </div>

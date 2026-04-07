@@ -148,7 +148,7 @@ serve(async (req) => {
     let taskContext = "";
     if (tasks && Array.isArray(tasks) && tasks.length > 0) {
       taskContext = "\n\n## Current Board State\n" + tasks.map((t: any) =>
-        `- [${t.status}] "${t.title}" (id: ${t.id}, priority: ${t.priority}${t.due_date ? `, due: ${t.due_date}` : ""}${t.description ? `, desc: ${t.description}` : ""})`
+        `- [${t.status}] "${t.title}" (id: ${t.id}, priority: ${t.priority}, category: ${t.category}${t.due_date ? `, due: ${t.due_date}` : ""}${t.start_hour ? `, start: ${t.start_hour}` : ""}${t.estimated_minutes ? `, est: ${t.estimated_minutes}min` : ""}${t.description ? `, desc: ${t.description}` : ""})`
       ).join("\n");
     } else {
       taskContext = "\n\nThe board is currently empty.";
