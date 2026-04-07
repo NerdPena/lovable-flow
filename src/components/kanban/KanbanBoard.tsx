@@ -18,8 +18,12 @@ import { TaskDialog } from "./TaskDialog";
 import { useTasks } from "@/hooks/useTasks";
 import { COLUMNS, type Task, type TaskStatus } from "@/types/kanban";
 
-export function KanbanBoard() {
-  const { tasks, isLoading, addTask, updateTask, deleteTask, moveTask } = useTasks();
+interface KanbanBoardProps {
+  taskHook: ReturnType<typeof useTasks>;
+}
+
+export function KanbanBoard({ taskHook }: KanbanBoardProps) {
+  const { tasks, isLoading, addTask, updateTask, deleteTask, moveTask } = taskHook;
   const [activeTask, setActiveTask] = useState<Task | null>(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);

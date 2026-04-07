@@ -51,5 +51,5 @@ export function useTasks() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["tasks"] }),
   });
 
-  return { tasks: query.data ?? [], isLoading: query.isLoading, addTask, updateTask, deleteTask, moveTask };
+  return { tasks: query.data ?? [], isLoading: query.isLoading, refetch: query.refetch, addTask, updateTask, deleteTask, moveTask };
 }
