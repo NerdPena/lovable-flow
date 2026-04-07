@@ -16,34 +16,43 @@ export type Database = {
     Tables: {
       tasks: {
         Row: {
+          category: Database["public"]["Enums"]["task_category"]
           created_at: string
           description: string | null
           due_date: string | null
+          estimated_minutes: number | null
           id: string
           position: number
           priority: Database["public"]["Enums"]["task_priority"]
+          start_hour: string | null
           status: Database["public"]["Enums"]["task_status"]
           title: string
           updated_at: string
         }
         Insert: {
+          category?: Database["public"]["Enums"]["task_category"]
           created_at?: string
           description?: string | null
           due_date?: string | null
+          estimated_minutes?: number | null
           id?: string
           position?: number
           priority?: Database["public"]["Enums"]["task_priority"]
+          start_hour?: string | null
           status?: Database["public"]["Enums"]["task_status"]
           title: string
           updated_at?: string
         }
         Update: {
+          category?: Database["public"]["Enums"]["task_category"]
           created_at?: string
           description?: string | null
           due_date?: string | null
+          estimated_minutes?: number | null
           id?: string
           position?: number
           priority?: Database["public"]["Enums"]["task_priority"]
+          start_hour?: string | null
           status?: Database["public"]["Enums"]["task_status"]
           title?: string
           updated_at?: string
@@ -58,6 +67,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
+      task_category: "personal" | "printers" | "rv_park"
       task_priority: "low" | "medium" | "high"
       task_status: "backlog" | "todo" | "in_progress" | "review" | "done"
     }
@@ -187,6 +197,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
+      task_category: ["personal", "printers", "rv_park"],
       task_priority: ["low", "medium", "high"],
       task_status: ["backlog", "todo", "in_progress", "review", "done"],
     },
