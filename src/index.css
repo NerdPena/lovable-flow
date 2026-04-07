@@ -1,96 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 230 25% 97%;
+    --foreground: 230 25% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 230 25% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 230 25% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 250 76% 58%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 230 20% 94%;
+    --secondary-foreground: 230 25% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 230 15% 93%;
+    --muted-foreground: 230 10% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 250 76% 95%;
+    --accent-foreground: 250 76% 40%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 230 20% 90%;
+    --input: 230 20% 90%;
+    --ring: 250 76% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 250 76% 58%;
+    --sidebar-foreground: 250 100% 97%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 250 76% 58%;
+    --sidebar-accent: 250 70% 65%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 250 70% 52%;
+    --sidebar-ring: 0 0% 100%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Kanban column colors */
+    --column-backlog: 230 15% 93%;
+    --column-todo: 217 91% 94%;
+    --column-in-progress: 37 91% 94%;
+    --column-review: 270 76% 94%;
+    --column-done: 142 76% 93%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --column-backlog-accent: 230 15% 60%;
+    --column-todo-accent: 217 91% 60%;
+    --column-in-progress-accent: 37 91% 55%;
+    --column-review-accent: 270 76% 60%;
+    --column-done-accent: 142 60% 45%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Priority colors */
+    --priority-high: 0 84% 60%;
+    --priority-medium: 37 91% 55%;
+    --priority-low: 142 60% 45%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 230 25% 8%;
+    --foreground: 230 15% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 230 20% 12%;
+    --card-foreground: 230 15% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 230 20% 12%;
+    --popover-foreground: 230 15% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 250 76% 62%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 230 20% 16%;
+    --secondary-foreground: 230 15% 85%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 230 15% 18%;
+    --muted-foreground: 230 10% 55%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 250 50% 20%;
+    --accent-foreground: 250 76% 80%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 230 15% 20%;
+    --input: 230 15% 20%;
+    --ring: 250 76% 62%;
+
+    --sidebar-background: 250 50% 15%;
+    --sidebar-foreground: 250 100% 97%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 250 76% 58%;
+    --sidebar-accent: 250 50% 22%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 250 40% 25%;
+    --sidebar-ring: 0 0% 100%;
   }
 }
 
@@ -101,5 +111,24 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
+}
+
+/* Custom scrollbar */
+.kanban-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.kanban-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.kanban-scroll::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 999px;
+}
+
+.kanban-scroll::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }

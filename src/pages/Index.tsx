@@ -1,16 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/AppSidebar";
+import { KanbanBoard } from "@/components/kanban/KanbanBoard";
+import { AIChatPanel } from "@/components/chat/AIChatPanel";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <SidebarProvider>
+      <div className="min-h-screen flex w-full">
+        <AppSidebar />
+
+        <div className="flex-1 flex flex-col min-w-0">
+          <header className="h-14 flex items-center gap-4 border-b px-4 bg-card shrink-0">
+            <SidebarTrigger className="ml-1" />
+            <div>
+              <h1 className="font-extrabold text-lg">Kanban Dashboard</h1>
+            </div>
+          </header>
+
+          <main className="flex-1 overflow-hidden">
+            <KanbanBoard />
+          </main>
+        </div>
+
+        <AIChatPanel />
+      </div>
+    </SidebarProvider>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
