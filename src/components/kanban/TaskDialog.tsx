@@ -33,7 +33,10 @@ const taskSchema = z.object({
   title: z.string().min(1, "Title is required"),
   description: z.string().optional(),
   priority: z.enum(["low", "medium", "high"]),
+  category: z.enum(["personal", "printers", "rv_park"]),
   due_date: z.string().optional(),
+  start_hour: z.string().optional(),
+  estimated_minutes: z.coerce.number().min(0).optional(),
   status: z.enum(["backlog", "todo", "in_progress", "review", "done"]),
 });
 
