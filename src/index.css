@@ -6,43 +6,43 @@
 
 @layer base {
   :root {
-    --background: 230 25% 97%;
-    --foreground: 230 25% 10%;
+    --background: 240 5% 98%;
+    --foreground: 240 5% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 230 25% 10%;
+    --card-foreground: 240 5% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 230 25% 10%;
+    --popover-foreground: 240 5% 10%;
 
-    --primary: 250 76% 58%;
+    --primary: 240 5% 15%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 230 20% 94%;
-    --secondary-foreground: 230 25% 20%;
+    --secondary: 240 5% 94%;
+    --secondary-foreground: 240 5% 20%;
 
-    --muted: 230 15% 93%;
-    --muted-foreground: 230 10% 50%;
+    --muted: 240 5% 93%;
+    --muted-foreground: 240 5% 45%;
 
-    --accent: 250 76% 95%;
-    --accent-foreground: 250 76% 40%;
+    --accent: 240 5% 93%;
+    --accent-foreground: 240 5% 15%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 230 20% 90%;
-    --input: 230 20% 90%;
-    --ring: 250 76% 58%;
+    --border: 240 5% 90%;
+    --input: 240 5% 90%;
+    --ring: 240 5% 15%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 250 76% 58%;
-    --sidebar-foreground: 250 100% 97%;
+    --sidebar-background: 240 5% 12%;
+    --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 0 0% 100%;
-    --sidebar-primary-foreground: 250 76% 58%;
-    --sidebar-accent: 250 70% 65%;
+    --sidebar-primary-foreground: 240 5% 15%;
+    --sidebar-accent: 240 5% 18%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 250 70% 52%;
+    --sidebar-border: 240 5% 20%;
     --sidebar-ring: 0 0% 100%;
 
     /* Kanban column colors */
@@ -65,41 +65,41 @@
   }
 
   .dark {
-    --background: 230 25% 8%;
-    --foreground: 230 15% 95%;
+    --background: 240 5% 6%;
+    --foreground: 240 5% 95%;
 
-    --card: 230 20% 12%;
-    --card-foreground: 230 15% 95%;
+    --card: 240 5% 10%;
+    --card-foreground: 240 5% 95%;
 
-    --popover: 230 20% 12%;
-    --popover-foreground: 230 15% 95%;
+    --popover: 240 5% 10%;
+    --popover-foreground: 240 5% 95%;
 
-    --primary: 250 76% 62%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 240 5% 90%;
+    --primary-foreground: 240 5% 10%;
 
-    --secondary: 230 20% 16%;
-    --secondary-foreground: 230 15% 85%;
+    --secondary: 240 5% 15%;
+    --secondary-foreground: 240 5% 85%;
 
-    --muted: 230 15% 18%;
-    --muted-foreground: 230 10% 55%;
+    --muted: 240 5% 16%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 250 50% 20%;
-    --accent-foreground: 250 76% 80%;
+    --accent: 240 5% 18%;
+    --accent-foreground: 240 5% 90%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 230 15% 20%;
-    --input: 230 15% 20%;
-    --ring: 250 76% 62%;
+    --border: 240 5% 18%;
+    --input: 240 5% 18%;
+    --ring: 240 5% 90%;
 
-    --sidebar-background: 250 50% 15%;
-    --sidebar-foreground: 250 100% 97%;
+    --sidebar-background: 240 5% 8%;
+    --sidebar-foreground: 0 0% 100%;
     --sidebar-primary: 0 0% 100%;
-    --sidebar-primary-foreground: 250 76% 58%;
-    --sidebar-accent: 250 50% 22%;
+    --sidebar-primary-foreground: 240 5% 90%;
+    --sidebar-accent: 240 5% 15%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 250 40% 25%;
+    --sidebar-border: 240 5% 18%;
     --sidebar-ring: 0 0% 100%;
   }
 }
