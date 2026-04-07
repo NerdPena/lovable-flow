@@ -100,8 +100,11 @@ async function executeTool(name: string, args: Record<string, unknown>): Promise
     const insert: Record<string, unknown> = { title: args.title };
     if (args.description) insert.description = args.description;
     if (args.priority) insert.priority = args.priority;
+    if (args.category) insert.category = args.category;
     if (args.status) insert.status = args.status;
     if (args.due_date && args.due_date !== "null") insert.due_date = args.due_date;
+    if (args.start_hour && args.start_hour !== "null") insert.start_hour = args.start_hour;
+    if (args.estimated_minutes !== undefined) insert.estimated_minutes = args.estimated_minutes;
     const { data, error } = await supabase.from("tasks").insert(insert).select().single();
     if (error) return JSON.stringify({ error: error.message });
     return JSON.stringify({ success: true, task: data });
