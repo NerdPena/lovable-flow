@@ -37,25 +37,24 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
     <div
       ref={setNodeRef}
       style={style}
-      className={`group rounded-xl border bg-card p-4 shadow-sm transition-all hover:shadow-md ${
-        isDragging ? "opacity-50 shadow-lg ring-2 ring-primary/30" : ""
+      {...attributes}
+      {...listeners}
+      className={`group rounded-xl border bg-card p-4 shadow-sm transition-all hover:shadow-md cursor-grab touch-manipulation ${
+        isDragging ? "opacity-50 shadow-lg ring-2 ring-primary/30 cursor-grabbing" : ""
       }`}
     >
       <div className="flex items-start gap-2">
-        <button
-          {...attributes}
-          {...listeners}
-          className="mt-0.5 cursor-grab opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground hover:text-foreground"
-        >
-          <GripVertical className="h-4 w-4" />
-        </button>
-
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
             <h4 className="font-semibold text-sm leading-tight">{task.title}</h4>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
+                  onPointerDown={(e) => e.stopPropagation()}
+                >
                   <MoreHorizontal className="h-3.5 w-3.5" />
                 </Button>
               </DropdownMenuTrigger>
