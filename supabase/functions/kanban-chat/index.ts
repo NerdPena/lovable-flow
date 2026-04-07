@@ -34,7 +34,7 @@ const tools = [
     type: "function",
     function: {
       name: "update_task",
-      description: "Update an existing task's fields (title, description, priority, status, due_date)",
+      description: "Update an existing task's fields (title, description, priority, category, status, due_date, start_hour, estimated_minutes)",
       parameters: {
         type: "object",
         properties: {
@@ -42,8 +42,11 @@ const tools = [
           title: { type: "string" },
           description: { type: "string" },
           priority: { type: "string", enum: ["low", "medium", "high"] },
+          category: { type: "string", enum: ["personal", "printers", "rv_park"] },
           status: { type: "string", enum: ["backlog", "todo", "in_progress", "review", "done"] },
           due_date: { type: "string", description: "YYYY-MM-DD or null to clear" },
+          start_hour: { type: "string", description: "HH:MM or null to clear" },
+          estimated_minutes: { type: "number", description: "Duration in minutes or null to clear" },
         },
         required: ["task_id"],
         additionalProperties: false,
