@@ -2,8 +2,11 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { KanbanBoard } from "@/components/kanban/KanbanBoard";
 import { AIChatPanel } from "@/components/chat/AIChatPanel";
+import { useTasks } from "@/hooks/useTasks";
 
 const Index = () => {
+  const taskHook = useTasks();
+
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full">
@@ -18,11 +21,11 @@ const Index = () => {
           </header>
 
           <main className="flex-1 overflow-hidden">
-            <KanbanBoard />
+            <KanbanBoard taskHook={taskHook} />
           </main>
         </div>
 
-        <AIChatPanel />
+        <AIChatPanel tasks={taskHook.tasks} onTasksChanged={() => taskHook.refetch()} />
       </div>
     </SidebarProvider>
   );
