@@ -20,7 +20,7 @@ export function KanbanColumn({ id, label, tasks, onAddTask, onEditTask, onDelete
   const colors = COLUMN_COLORS[id];
 
   return (
-    <div className={`flex flex-col rounded-2xl ${colors.bg} min-w-[280px] w-[280px] shrink-0`}>
+    <div className={`flex flex-col rounded-2xl ${colors.bg} w-full md:min-w-[280px] md:w-[280px] shrink-0`}>
       {/* Header */}
       <div className="flex items-center justify-between p-4 pb-2">
         <div className="flex items-center gap-2">

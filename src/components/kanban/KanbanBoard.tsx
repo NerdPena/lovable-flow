@@ -136,7 +136,7 @@ export function KanbanBoard({ taskHook }: KanbanBoardProps) {
         onDragStart={handleDragStart}
         onDragEnd={handleDragEnd}
       >
-        <div className="flex gap-4 p-6 overflow-x-auto h-full">
+        <div className="flex flex-col md:flex-row gap-4 p-4 md:p-6 overflow-y-auto md:overflow-y-hidden md:overflow-x-auto h-full">
           {COLUMNS.map((col) => (
             <KanbanColumn
               key={col.id}
