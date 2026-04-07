@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import type { Task } from "@/types/kanban";
-import { PRIORITY_CONFIG } from "@/types/kanban";
+import { PRIORITY_CONFIG, CATEGORY_CONFIG } from "@/types/kanban";
 
 interface TaskCardProps {
   task: Task;
