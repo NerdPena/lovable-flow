@@ -31,6 +31,7 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
   };
 
   const priority = PRIORITY_CONFIG[task.priority];
+  const category = CATEGORY_CONFIG[task.category];
 
   return (
     <div
