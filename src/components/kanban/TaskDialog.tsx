@@ -57,7 +57,10 @@ export function TaskDialog({ open, onOpenChange, task, defaultStatus = "backlog"
       title: "",
       description: "",
       priority: "medium",
+      category: "personal",
       due_date: "",
+      start_hour: "",
+      estimated_minutes: undefined,
       status: defaultStatus,
     },
   });
