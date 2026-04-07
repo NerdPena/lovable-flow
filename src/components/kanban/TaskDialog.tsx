@@ -71,7 +71,10 @@ export function TaskDialog({ open, onOpenChange, task, defaultStatus = "backlog"
         title: task.title,
         description: task.description ?? "",
         priority: task.priority,
+        category: task.category,
         due_date: task.due_date ?? "",
+        start_hour: task.start_hour ?? "",
+        estimated_minutes: task.estimated_minutes ?? undefined,
         status: task.status,
       });
     } else {
@@ -79,7 +82,10 @@ export function TaskDialog({ open, onOpenChange, task, defaultStatus = "backlog"
         title: "",
         description: "",
         priority: "medium",
+        category: "personal",
         due_date: "",
+        start_hour: "",
+        estimated_minutes: undefined,
         status: defaultStatus,
       });
     }
