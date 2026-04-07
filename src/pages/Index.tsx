@@ -3,7 +3,7 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { KanbanBoard } from "@/components/kanban/KanbanBoard";
 import { ProjectTimeline } from "@/components/dashboard/ProjectTimeline";
-import { AIChatPanel } from "@/components/chat/AIChatPanel";
+
 import { useTasks } from "@/hooks/useTasks";
 import { LayoutDashboard, Columns3 } from "lucide-react";
 
@@ -58,7 +58,7 @@ const Index = () => {
           </main>
         </div>
 
-        <AIChatPanel tasks={taskHook.tasks} onTasksChanged={() => taskHook.refetch()} />
+
       </div>
     </SidebarProvider>
   );
