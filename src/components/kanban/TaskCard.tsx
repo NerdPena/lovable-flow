@@ -1,6 +1,6 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { Calendar, GripVertical, MoreHorizontal, Pencil, Trash2 } from "lucide-react";
+import { Calendar, Clock, Timer, GripVertical, MoreHorizontal, Pencil, Trash2 } from "lucide-react";
 import { format } from "date-fns";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import type { Task } from "@/types/kanban";
-import { PRIORITY_CONFIG } from "@/types/kanban";
+import { PRIORITY_CONFIG, CATEGORY_CONFIG } from "@/types/kanban";
 
 interface TaskCardProps {
   task: Task;
@@ -31,6 +31,7 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
   };
 
   const priority = PRIORITY_CONFIG[task.priority];
+  const category = CATEGORY_CONFIG[task.category];
 
   return (
     <div
@@ -77,10 +78,25 @@ export function TaskCard({ task, onEdit, onDelete }: TaskCardProps) {
             <Badge variant="outline" className={`text-[10px] px-2 py-0.5 font-semibold border-0 ${priority.bg} ${priority.color}`}>
               {priority.label}
             </Badge>
+            <Badge variant="secondary" className="text-[10px] px-2 py-0.5 font-medium">
+              {category.emoji} {category.label}
+            </Badge>
             {task.due_date && (
               <span className="inline-flex items-center gap-1 text-[10px] text-muted-foreground">
                 <Calendar className="h-3 w-3" />
                 {format(new Date(task.due_date), "MMM d")}
+              </span>
+            )}
+            {task.start_hour && (
+              <span className="inline-flex items-center gap-1 text-[10px] text-muted-foreground">
+                <Clock className="h-3 w-3" />
+                {task.start_hour.slice(0, 5)}
+              </span>
+            )}
+            {task.estimated_minutes && (
+              <span className="inline-flex items-center gap-1 text-[10px] text-muted-foreground">
+                <Timer className="h-3 w-3" />
+                {task.estimated_minutes}m
               </span>
             )}
           </div>

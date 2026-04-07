@@ -19,8 +19,11 @@ const tools = [
           title: { type: "string", description: "Task title" },
           description: { type: "string", description: "Task description" },
           priority: { type: "string", enum: ["low", "medium", "high"] },
+          category: { type: "string", enum: ["personal", "printers", "rv_park"], description: "Task category" },
           status: { type: "string", enum: ["backlog", "todo", "in_progress", "review", "done"], description: "Which column to place the task in" },
           due_date: { type: "string", description: "Due date in YYYY-MM-DD format, or null" },
+          start_hour: { type: "string", description: "Start time in HH:MM format, or null" },
+          estimated_minutes: { type: "number", description: "Estimated duration in minutes" },
         },
         required: ["title"],
         additionalProperties: false,
@@ -31,7 +34,7 @@ const tools = [
     type: "function",
     function: {
       name: "update_task",
-      description: "Update an existing task's fields (title, description, priority, status, due_date)",
+      description: "Update an existing task's fields (title, description, priority, category, status, due_date, start_hour, estimated_minutes)",
       parameters: {
         type: "object",
         properties: {
@@ -39,8 +42,11 @@ const tools = [
           title: { type: "string" },
           description: { type: "string" },
           priority: { type: "string", enum: ["low", "medium", "high"] },
+          category: { type: "string", enum: ["personal", "printers", "rv_park"] },
           status: { type: "string", enum: ["backlog", "todo", "in_progress", "review", "done"] },
           due_date: { type: "string", description: "YYYY-MM-DD or null to clear" },
+          start_hour: { type: "string", description: "HH:MM or null to clear" },
+          estimated_minutes: { type: "number", description: "Duration in minutes or null to clear" },
         },
         required: ["task_id"],
         additionalProperties: false,
@@ -94,8 +100,11 @@ async function executeTool(name: string, args: Record<string, unknown>): Promise
     const insert: Record<string, unknown> = { title: args.title };
     if (args.description) insert.description = args.description;
     if (args.priority) insert.priority = args.priority;
+    if (args.category) insert.category = args.category;
     if (args.status) insert.status = args.status;
     if (args.due_date && args.due_date !== "null") insert.due_date = args.due_date;
+    if (args.start_hour && args.start_hour !== "null") insert.start_hour = args.start_hour;
+    if (args.estimated_minutes !== undefined) insert.estimated_minutes = args.estimated_minutes;
     const { data, error } = await supabase.from("tasks").insert(insert).select().single();
     if (error) return JSON.stringify({ error: error.message });
     return JSON.stringify({ success: true, task: data });
@@ -139,7 +148,7 @@ serve(async (req) => {
     let taskContext = "";
     if (tasks && Array.isArray(tasks) && tasks.length > 0) {
       taskContext = "\n\n## Current Board State\n" + tasks.map((t: any) =>
-        `- [${t.status}] "${t.title}" (id: ${t.id}, priority: ${t.priority}${t.due_date ? `, due: ${t.due_date}` : ""}${t.description ? `, desc: ${t.description}` : ""})`
+        `- [${t.status}] "${t.title}" (id: ${t.id}, priority: ${t.priority}, category: ${t.category}${t.due_date ? `, due: ${t.due_date}` : ""}${t.start_hour ? `, start: ${t.start_hour}` : ""}${t.estimated_minutes ? `, est: ${t.estimated_minutes}min` : ""}${t.description ? `, desc: ${t.description}` : ""})`
       ).join("\n");
     } else {
       taskContext = "\n\nThe board is currently empty.";

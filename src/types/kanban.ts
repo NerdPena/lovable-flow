@@ -5,6 +5,13 @@ export type TaskInsert = Database["public"]["Tables"]["tasks"]["Insert"];
 export type TaskUpdate = Database["public"]["Tables"]["tasks"]["Update"];
 export type TaskPriority = Database["public"]["Enums"]["task_priority"];
 export type TaskStatus = Database["public"]["Enums"]["task_status"];
+export type TaskCategory = Database["public"]["Enums"]["task_category"];
+
+export const CATEGORY_CONFIG: Record<TaskCategory, { label: string; emoji: string }> = {
+  personal: { label: "Personal", emoji: "👤" },
+  printers: { label: "Printers", emoji: "🖨️" },
+  rv_park: { label: "RV Park", emoji: "🏕️" },
+};
 
 export const COLUMNS: { id: TaskStatus; label: string }[] = [
   { id: "backlog", label: "Backlog" },
